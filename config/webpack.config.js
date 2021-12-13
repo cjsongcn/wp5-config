@@ -4,7 +4,6 @@ const devConfig = require('./webpack.config.dev');
 const prodConfig = require('./webpack.config.prod');
 
 module.exports = (env) => {
-    console.log(env);
     if (env.prod) {
         return merge(commonConfig, prodConfig)
     }
