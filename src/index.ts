@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import add from './add';
 import pic from './assets/images/pic.png';
 import './assets/styles/index.less';
@@ -33,4 +34,6 @@ divEl.className = 'box';
 divEl.innerHTML = `<i class="iconfont">&#xe699;</i>`;
 
 document.body.appendChild(divEl);
+
+console.log(_.get({ a: 'bbb' }, 'a'));
 

@@ -3,12 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: {
+    main: './src/index.ts'
+  },
   output: {
-    filename: 'main.js',
     path: path.resolve(__dirname, '../dist'),
     clean: true,
-    assetModuleFilename: 'assets/[hash][ext]'
+    chunkFilename: '[chunkhash].js',
   },
   resolve: {
     extensions: ['.ts', '.js']
@@ -38,8 +39,10 @@ module.exports = {
         title: '基于webpack5构建的工程',
         inject: 'body'
       }),
-      new MiniCssExtractPlugin({
-        filename: 'assets/[hash].css'
-      })
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
+  }
 };
